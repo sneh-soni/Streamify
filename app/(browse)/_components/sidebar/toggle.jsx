@@ -2,6 +2,7 @@
 
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useSidebar } from "@/store/use-sidebar";
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 
@@ -23,7 +24,7 @@ export const Toggle = () => {
       )}
 
       {!collapsed && (
-        <div className="flex items-center w-full justify-between p-1 pl-6">
+        <div className="flex items-center w-full justify-between p-1 pl-4">
           <p className="text-primary font-semibold text-sm">For You</p>
           <Hint label={label} side="right" asChild>
             <Button
@@ -37,5 +38,13 @@ export const Toggle = () => {
         </div>
       )}
     </>
+  );
+};
+
+export const ToggleSketeton = () => {
+  return (
+    <div className="w-full p-1">
+      <Skeleton className="h-8 w-full" />
+    </div>
   );
 };

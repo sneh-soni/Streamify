@@ -3,7 +3,7 @@
 import { LiveBadge } from "@/components/live-badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { UserAvatar, UserAvatarSkeleton } from "@/components/user-avatar";
+import { UserAvatar } from "@/components/user-avatar";
 import { cn } from "@/lib/utils";
 import { useSidebar } from "@/store/use-sidebar";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export const UserItem = ({ username, imageUrl, isLive }: userItemProps) => {
           )}
         >
           <UserAvatar username={username} imageUrl={imageUrl} isLive={isLive} />
-          {!collapsed && <p className="truncate">username</p>}
+          {!collapsed && <p className="truncate">{username}</p>}
           {!collapsed && isLive && <LiveBadge className="ml-auto" />}
         </div>
       </Link>
@@ -49,8 +49,8 @@ export const UserItem = ({ username, imageUrl, isLive }: userItemProps) => {
 
 export const UserItemSkeleton = () => {
   return (
-    <li className="flex items-center gap-x-4 px-3 py-2">
-      <Skeleton className="rounded-full h-8 w-8" />
+    <li className="flex items-center gap-x-4 p-2">
+      <Skeleton className="rounded-full h-8 w-8 shrink-0" />
       <div className="flex-1">
         <Skeleton className="h-6" />
       </div>
