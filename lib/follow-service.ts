@@ -1,7 +1,7 @@
 import { getSelf } from "./auth-service";
 import { db } from "./db";
 
-export const isFollowingUser = async (id: string) => {
+const isFollowingUser = async (id: string) => {
   try {
     const self = await getSelf();
 
@@ -26,7 +26,7 @@ export const isFollowingUser = async (id: string) => {
   }
 };
 
-export const followUser = async (id: string) => {
+const followUser = async (id: string) => {
   const self = await getSelf();
 
   const otherUser = await db.user.findUnique({
@@ -61,3 +61,58 @@ export const followUser = async (id: string) => {
 
   return follow;
 };
+
+const unfollowUser = async (id: string) => {
+  const self = await getSelf();
+
+  const otherUser = await db.user.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  if (!otherUser) throw new Error("User Not Found");
+
+  if (self.id === otherUser.id) throw new Error("Cannot Unfollow user");
+
+  const existingFollow = await db.follow.findFirst({
+    where: {
+      followerId: self.id,
+      followingId: otherUser.id,
+    },
+  });
+
+  if (!existingFollow) throw new Error("Not following");
+
+  const follow = await db.follow.delete({
+    where: {
+      id: existingFollow.id,
+    },
+    include: {
+      following: true,
+    },
+  });
+
+  return follow;
+};
+
+const getFollowedUsers = async () => {
+  try {
+    const self = await getSelf();
+
+    const followedUsers = db.follow.findMany({
+      where: {
+        followerId: self.id,
+      },
+      include: {
+        following: true,
+      },
+    });
+
+    return followedUsers;
+  } catch (error) {
+    return [];
+  }
+};
+
+export { isFollowingUser, followUser, unfollowUser, getFollowedUsers };
