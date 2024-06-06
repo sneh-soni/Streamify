@@ -1,7 +1,7 @@
 import { getSelf } from "./auth-service";
 import { db } from "./db";
 
-export const getRecommended = async () => {
+const getRecommended = async () => {
   let userId;
 
   try {
@@ -31,6 +31,15 @@ export const getRecommended = async () => {
               },
             },
           },
+          {
+            NOT: {
+              blocking: {
+                some: {
+                  blockedId: userId,
+                },
+              },
+            },
+          },
         ],
       },
       orderBy: {
@@ -47,3 +56,5 @@ export const getRecommended = async () => {
 
   return users;
 };
+
+export { getRecommended };

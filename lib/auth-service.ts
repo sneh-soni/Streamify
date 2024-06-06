@@ -1,7 +1,7 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { db } from "./db";
 
-export const getSelf = async () => {
+const getSelf = async () => {
   const clerkUser = await currentUser();
 
   if (!clerkUser || !clerkUser.id) throw new Error("Unauthorized");
@@ -16,3 +16,5 @@ export const getSelf = async () => {
 
   return user;
 };
+
+export { getSelf };

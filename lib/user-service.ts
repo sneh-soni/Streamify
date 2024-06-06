@@ -1,6 +1,6 @@
 import { db } from "./db";
 
-export const getUserByUsername = async (username: string) => {
+const getUserByUsername = async (username: string) => {
   const user = await db.user.findUnique({
     where: {
       username: username,
@@ -9,3 +9,5 @@ export const getUserByUsername = async (username: string) => {
 
   return user;
 };
+
+export { getUserByUsername };
