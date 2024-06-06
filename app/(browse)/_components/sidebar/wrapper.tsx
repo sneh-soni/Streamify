@@ -27,25 +27,25 @@ export const Wrapper = ({ children }: wrapperProps) => {
       }
   */
 
-  // const isClient = useIsClient();
-
-  // if (!isClient) {
-  //   return (
-  //     <aside className="fixed left-0 flex flex-col w-16 md:w-60 h-full bg-background border-r border-[#2D2E35] z-50">
-  //        <ToggleSketeton />
-  //        <FollowingSkeleton />
-  //        <RecommendedSkeleton />
-  //     </aside>
-  //   );
-  // }
+  const isClient = useIsClient();
 
   const { collapsed } = useSidebar((state) => state);
+
+  if (!isClient) {
+    return (
+      <aside className="fixed left-0 flex flex-col w-16 md:w-60 h-full bg-background border-r border-[#2D2E35] z-50">
+        <ToggleSketeton />
+        <FollowingSkeleton />
+        <RecommendedSkeleton />
+      </aside>
+    );
+  }
 
   return (
     <aside
       className={cn(
-        "fixed left-0 flex flex-col h-full w-60 bg-background border-r border-[#2D2E35] z-50",
-        collapsed && "w-16"
+        "fixed left-0 flex flex-col h-full w-16 md:w-60 bg-background border-r border-[#2D2E35] z-50",
+        collapsed && "md:w-16"
       )}
     >
       {children}

@@ -26,7 +26,7 @@ export const UserItem = ({ username, imageUrl, isLive }: userItemProps) => {
       asChild
       variant={"ghost"}
       className={cn(
-        "flex ,w-full h-12",
+        "flex w-full h-12",
         collapsed ? "justify-center" : "justify-start",
         isActive && "bg-accent"
       )}
@@ -50,7 +50,7 @@ export const UserItem = ({ username, imageUrl, isLive }: userItemProps) => {
 export const UserItemSkeleton = () => {
   return (
     <li className="flex items-center gap-x-4 p-2">
-      <Skeleton className="rounded-full h-8 w-8 shrink-0" />
+      <Skeleton className="rounded-full min-h-8 min-w-8 " />
       <div className="flex-1">
         <Skeleton className="h-6" />
       </div>

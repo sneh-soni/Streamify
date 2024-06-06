@@ -1,5 +1,7 @@
 {
   "editor.fontSize": 12,
   "editor.fontFamily": "Fira code",
-  "editor.linkedEditing": true
+  "editor.linkedEditing": true,
+  "explorer.compactFolders": false,
+  "editor.wordWrap": "off"
 }

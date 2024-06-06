@@ -1,13 +1,14 @@
 "use client";
 
-import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useSidebar } from "@/store/use-sidebar";
+import { useCreatorSidebar } from "@/store/use-creator-sidebar";
+import { Hint } from "@/components/hint";
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 
 export const Toggle = () => {
-  const { collapsed, onCollapse, onExpand } = useSidebar((state) => state);
+  const { collapsed, onCollapse, onExpand } = useCreatorSidebar(
+    (state) => state
+  );
 
   const label = collapsed ? "Expand" : "Collapse";
 
@@ -25,7 +26,7 @@ export const Toggle = () => {
 
       {!collapsed && (
         <div className="hidden md:flex items-center w-full justify-between p-2 pl-4">
-          <p className="text-primary font-semibold ">For You</p>
+          <p className="text-primary font-semibold">Dashboard</p>
           <Hint label={label} side="right" asChild>
             <Button
               onClick={onCollapse}
@@ -38,13 +39,5 @@ export const Toggle = () => {
         </div>
       )}
     </>
-  );
-};
-
-export const ToggleSketeton = () => {
-  return (
-    <div className="hidden md:block w-full pt-3 px-4">
-      <Skeleton className="h-6 w-full" />
-    </div>
   );
 };
