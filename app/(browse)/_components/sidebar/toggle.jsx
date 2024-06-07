@@ -43,7 +43,7 @@ export const Toggle = () => {
 
 export const ToggleSketeton = () => {
   return (
-    <div className="hidden md:block w-full pt-3 px-4">
+    <div className="hidden md:block w-full py-2 px-4">
       <Skeleton className="h-6 w-full" />
     </div>
   );
