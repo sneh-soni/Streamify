@@ -1,14 +1,14 @@
 "use client";
 
-import { useSidebar } from "@/store/use-sidebar";
-import { Follow, Stream, User } from "@prisma/client";
-import { UserItem, UserItemSkeleton } from "./useritem";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useSidebar } from "@/store/use-sidebar";
+import { Follow, User } from "@prisma/client";
+import { UserItem, UserItemSkeleton } from "./useritem";
 
 interface FollowingProps {
   data: (Follow & {
     following: User & {
-      stream: Stream | null;
+      stream: { isLive: boolean } | null;
     };
   })[];
 }
