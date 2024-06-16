@@ -16,8 +16,7 @@ export const useViewerToken = (hostIdentity: string) => {
 
         const decodedToken = jwtDecode(viewerToken) as JwtPayload & {
           name?: string;
-          metadata?: string;
-          // sub?: string;
+          sub?: string;
         };
 
         const name = decodedToken?.name;
@@ -25,11 +24,8 @@ export const useViewerToken = (hostIdentity: string) => {
           setName(name);
         }
 
-        // const Identity = decodedToken?.sub; // Incase jti passed as subject
-
-        if (decodedToken?.metadata) {
-          const metadata = JSON.parse(decodedToken.metadata);
-          const Identity = metadata.jti;
+        const Identity = decodedToken?.sub;
+        if (Identity) {
           setIdentity(Identity);
         }
       } catch (error) {

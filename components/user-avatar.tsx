@@ -8,7 +8,7 @@ const avatarSizes = cva("", {
   variants: {
     size: {
       default: "h-8 w-8",
-      large: "h-14 w-14",
+      large: "h-12 w-12",
     },
   },
   defaultVariants: {
@@ -55,8 +55,8 @@ export const UserAvatar = ({
   );
 };
 
-interface userAvatarProps extends VariantProps<typeof avatarSizes> {}
+interface userAvatarSkeletonProps extends VariantProps<typeof avatarSizes> {}
 
-export const UserAvatarSkeleton = ({ size }: userAvatarProps) => {
+export const UserAvatarSkeleton = ({ size }: userAvatarSkeletonProps) => {
   return <Skeleton className={cn("rounded-full", avatarSizes({ size }))} />;
 };
