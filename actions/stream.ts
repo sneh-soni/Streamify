@@ -19,6 +19,7 @@ const updateStream = async ({ values }: UpdateStreamProps) => {
 
     const validData = {
       name: values.name,
+      thumbnailUrl: values.thumbnailUrl,
       isChatEnabled: values.isChatEnabled,
       isChatDelayed: values.isChatDelayed,
       isChatFollowersOnly: values.isChatFollowersOnly,
