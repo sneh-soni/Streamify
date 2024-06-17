@@ -24,8 +24,8 @@ export const InfoCard = ({
   if (!isHost) return null;
   return (
     <div className="px-4">
-      <div className="rounded-xl bg-background">
-        <div className="flex items-center gap-x-2 p-2">
+      <div className="rounded-xl bg-background p-4 lg:p-6 space-y-2">
+        <div className="flex items-center gap-x-3">
           <div className="rounded-md bg-blue-600 p-2 h-auto w-auto">
             <Pencil className="h-5 w-5" />
           </div>
@@ -40,7 +40,7 @@ export const InfoCard = ({
           <InfoModel initialName={name} initialThumbnailUrl={thumbnailUrl} />
         </div>
         <Separator />
-        <div className="p-4 lg:p-6 space-y-4">
+        <div className="space-y-4">
           <div>
             <h3 className="text-sm text-muted-foreground mb-2">Name</h3>
             <p className="text-sm font-semibold">{name}</p>

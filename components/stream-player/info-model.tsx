@@ -85,7 +85,11 @@ export const InfoModel = ({
       }}
     >
       <DialogTrigger asChild>
-        <Button variant="link" size={"sm"} className="ml-auto">
+        <Button
+          variant="link"
+          size={"sm"}
+          className="ml-auto hover:bg-white/10"
+        >
           Edit
         </Button>
       </DialogTrigger>

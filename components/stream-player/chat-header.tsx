@@ -13,7 +13,7 @@ export default function ChatHeader() {
         <ChatToggle />
       </div>
       <div className="font-semibold text-primary text-center text-lg">
-        {variant === ChatVariant.CHAT ? "Live Chat" : "Live Community"}
+        {variant === ChatVariant.CHAT ? "Live Chat" : "Community"}
       </div>
       <div className="absolute right-2 top-2">
         <VariantToggle />
