@@ -1,0 +1,4 @@
+thumbnail change button (besides remove)
+stream.isLive.updatedAt() instead of stream.updatedAt() on home and search results
+search results page skeleton fix
+add favicon
