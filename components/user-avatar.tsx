@@ -7,6 +7,7 @@ import { Skeleton } from "./ui/skeleton";
 const avatarSizes = cva("", {
   variants: {
     size: {
+      small: "h-6 w-6",
       default: "h-8 w-8",
       large: "h-12 w-12",
     },

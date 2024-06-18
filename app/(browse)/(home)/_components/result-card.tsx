@@ -18,7 +18,7 @@ interface ResultCardProps {
 export const ResultCard = ({ data }: ResultCardProps) => {
   return (
     <Link href={`${data.user.username}`}>
-      <div className="h-full w-full space-y-4 rounded-md relative">
+      <div className="h-full w-full space-y-3 rounded-md relative">
         <Thumbnail
           src={data.thumbnailUrl}
           fallback={data.user.imageUrl}
@@ -30,7 +30,7 @@ export const ResultCard = ({ data }: ResultCardProps) => {
             <LiveBadge />
           </div>
         )}
-        <div className="flex gap-x-3">
+        <div className="flex items-center gap-x-3">
           <UserAvatar
             username={data.user.username}
             imageUrl={data.user.imageUrl}
