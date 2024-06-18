@@ -16,12 +16,12 @@ export async function POST(req: Request) {
     return new Response("No Authorization headers", { status: 400 });
   }
 
-  const Event = receiver.receive(body, authorization);
+  const Event = await receiver.receive(body, authorization);
 
-  if ((await Event).event === "ingress_started") {
+  if (Event.event === "ingress_started") {
     const updatedStream = await db.stream.update({
       where: {
-        ingressId: (await Event).ingressInfo?.ingressId,
+        ingressId: Event.ingressInfo?.ingressId,
       },
       data: {
         isLive: true,
@@ -32,10 +32,10 @@ export async function POST(req: Request) {
       return new Response("Error while starting stream", { status: 500 });
   }
 
-  if ((await Event).event === "ingress_ended") {
+  if (Event.event === "ingress_ended") {
     const updatedStream = await db.stream.update({
       where: {
-        ingressId: (await Event).ingressInfo?.ingressId,
+        ingressId: Event.ingressInfo?.ingressId,
       },
       data: {
         isLive: false,
