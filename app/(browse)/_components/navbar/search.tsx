@@ -41,7 +41,7 @@ export const Search = () => {
       />
       {value && (
         <X
-          className="absolute right-12 h-4 w-4 cursor-pointer text-muted-foreground hover:opacity-75 transition"
+          className="absolute right-14 h-4 w-4 cursor-pointer text-muted-foreground hover:opacity-75 transition"
           onClick={() => setValue("")}
         />
       )}

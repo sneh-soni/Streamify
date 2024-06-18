@@ -37,7 +37,6 @@ export const ResultCard = ({ data }: ResultCardProps) => {
             <UserAvatar
               imageUrl={data.user.imageUrl}
               isLive={data.isLive}
-              showBadge
               key={data.id}
               size={"small"}
               username={data.user.username}
