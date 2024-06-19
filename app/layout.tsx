@@ -26,7 +26,6 @@ export default function RootLayout({
           <title>{metadata.title as string}</title>
           <meta name="description" content={metadata.description as string} />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" sizes="any" type="image/svg+xml" href="/logo.svg" />
         </Head>
         <body className={inter.className}>
           <ThemeProvider
