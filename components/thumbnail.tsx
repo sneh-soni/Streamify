@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { UserAvatar } from "./user-avatar";
 import { Skeleton } from "./ui/skeleton";
+import { LiveBadge } from "./live-badge";
 
 interface ThumbnailProps {
   src: string | null;
@@ -43,6 +44,11 @@ export const Thumbnail = ({
     <div className="group aspect-video relative rounded-md cursor-pointer">
       <div className="rounded-md absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center" />
       {content}
+      {isLive && src && (
+        <div className="absolute right-2 bottom-2 transition-transform group-hover:translate-x-2 group-hover:-translate-y-2">
+          <LiveBadge />
+        </div>
+      )}
     </div>
   );
 };

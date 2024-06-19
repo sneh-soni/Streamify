@@ -34,6 +34,7 @@ const updateStream = async ({ values }: UpdateStreamProps) => {
       },
     });
 
+    revalidatePath("/");
     revalidatePath(`/${self.username}`);
     revalidatePath(`/u/${self.username}`);
     revalidatePath(`/u/${self.username}/chat`);

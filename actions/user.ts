@@ -22,6 +22,7 @@ const updateUser = async (values: Partial<User>) => {
       },
     });
 
+    revalidatePath("/");
     revalidatePath(`/${self.username}`);
     revalidatePath(`/u/${self.username}`);
 
