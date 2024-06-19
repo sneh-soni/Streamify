@@ -61,8 +61,6 @@ export async function POST(req: Request) {
         },
       },
     });
-
-    console.log("User created successfully");
   }
 
   if (eventType === "user.updated") {
@@ -75,8 +73,6 @@ export async function POST(req: Request) {
         imageUrl: payload.data.image_url,
       },
     });
-
-    console.log("User updated successfully");
   }
 
   if (eventType === "user.deleted") {
@@ -86,8 +82,6 @@ export async function POST(req: Request) {
         externalUserId: payload.data.id,
       },
     });
-
-    console.log("User deleted successfully");
   }
 
   // Always return response o/w webhook will be in pending state
