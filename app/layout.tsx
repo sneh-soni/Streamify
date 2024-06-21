@@ -1,17 +1,19 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
-import Head from "next/head";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Streamify",
   description: "The Live streaming app",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -22,11 +24,6 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <Head>
-          <title>{metadata.title as string}</title>
-          <meta name="description" content={metadata.description as string} />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
         <body className={inter.className}>
           <ThemeProvider
             attribute="class"
