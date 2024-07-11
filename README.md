@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <a href="https://streamify-blond.vercel.app/" target="_blank">
-      <img src="https://res.cloudinary.com/dw61knhif/image/upload/v1718876150/Streamify_efo4jb.png" alt="Project Banner">
+      <img src="https://res.cloudinary.com/dw61knhif/image/upload/v1720631034/Blue_Pink_Gradient_Gaming_Stream_Facebook_Cover_w5i5tr.png" width="620px" alt="Project Banner">
     </a>
   <br />
 
